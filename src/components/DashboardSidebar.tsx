@@ -96,9 +96,6 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                 >
                   {userFullName}
                 </button>
-                <Badge className="text-xs bg-gradient-to-r from-muted-gold to-yellow-400 text-white border-0">
-                  Premium Member
-                </Badge>
               </div>
             </div>
           </div>

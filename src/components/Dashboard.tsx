@@ -8,7 +8,6 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import VoiceChatbot from '@/components/VoiceChatbot';
 import DoctorFinder from '@/components/DoctorFinder';
 import EmergencyPanel from '@/components/EmergencyPanel';
-import DiseaseHeatmap from '@/components/DiseaseHeatmap';
 import LanguageToggle from '@/components/LanguageToggle';
 import Assessment from '@/components/Assessment';
 import { motion } from 'framer-motion';
@@ -43,7 +42,6 @@ const Dashboard: React.FC<DashboardProps> = ({
       chat: "स्वास्थ्य चैट",
       doctors: "डॉक्टर खोजें",
       emergency: "आपातकाल",
-      heatmap: "बीमारी मैप",
       profile: "प्रोफाइल",
       settings: "सेटिंग्स",
       logout: "लॉगआउट",
@@ -59,7 +57,6 @@ const Dashboard: React.FC<DashboardProps> = ({
       chat: "Health Chat",
       doctors: "Find Doctors",
       emergency: "Emergency",
-      heatmap: "Disease Map",
       profile: "Profile",
       settings: "Settings",
       logout: "Logout",
@@ -96,11 +93,6 @@ const Dashboard: React.FC<DashboardProps> = ({
     icon: AlertTriangle,
     label: t.emergency,
     color: 'text-red-500'
-  }, {
-    id: 'heatmap',
-    icon: MapPin,
-    label: t.heatmap,
-    color: 'text-blue-500'
   }];
   const quickActions = [{
     icon: MessageSquare,
@@ -302,7 +294,7 @@ const Dashboard: React.FC<DashboardProps> = ({
         <h2 className="font-heading text-2xl sm:text-3xl font-bold text-foreground mb-6 sm:mb-8">{t.quickActions}</h2>
         <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {quickActions.map((action, index) => (
-            <Card key={index} className="glass-card premium-card-hover cursor-pointer border-white/10 rounded-2xl shadow-lg-glass min-w-0" onClick={action.action}>
+            <Card key={index} className="glass-card cursor-pointer border-white/10 rounded-2xl shadow-lg-glass min-w-0" onClick={action.action}>
               <CardContent className="p-6 sm:p-8 text-center">
                 <div className={`w-14 h-14 sm:w-16 sm:h-16 ${action.color} rounded-3xl flex items-center justify-center mx-auto mb-5 sm:mb-6 shadow-lg`}>
                   <action.icon className={`w-7 h-7 sm:w-8 sm:h-8 ${action.label === 'Emergency Help' ? 'text-white' : 'text-emerald-700'}`} />
@@ -316,7 +308,9 @@ const Dashboard: React.FC<DashboardProps> = ({
 
       {/* Health Metrics */}
       <div>
-        
+        <h2 className="font-heading text-2xl sm:text-3xl font-bold text-foreground mb-6 sm:mb-8">
+          Health Metrics
+        </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {healthMetrics.map((metric, index) => <Card key={index} className={`glass-card glass-metric-card border-white/10 rounded-2xl shadow-md ${metric.bgColor}`}>
               
@@ -345,8 +339,6 @@ const Dashboard: React.FC<DashboardProps> = ({
         return <DoctorFinder language={currentLanguage} />;
       case 'emergency':
         return <EmergencyPanel language={currentLanguage} />;
-      case 'heatmap':
-        return <DiseaseHeatmap language={currentLanguage} />;
       case 'profile':
         return <ProfilePage
           userFullName={profile.full_name}
@@ -365,7 +357,7 @@ const Dashboard: React.FC<DashboardProps> = ({
     }
   };
   return <SidebarProvider>
-      <div className="min-h-screen bg-premium-gradient floating-bg flex flex-col md:flex-row w-full">
+      <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-purple-100 floating-bg flex flex-col md:flex-row w-full">
         {/* Sidebar for desktop & sidebar in drawer for mobile */}
         <Sidebar>
           <SidebarContent className="hidden md:block h-full p-0 w-72 bg-transparent border-0 shadow-none">
@@ -400,23 +392,10 @@ const Dashboard: React.FC<DashboardProps> = ({
 
               {/* Right side: Search, Language, Notifications, Profile */}
               <div className="flex items-center space-x-4">
-                {/* Search */}
-                <div className="relative w-full max-w-xs">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-foreground/40" />
-                  <Input placeholder="Search..." className="pl-10 w-full glass-card border-white/20 bg-white/5 focus:ring-muted-gold focus:border-muted-gold text-foreground placeholder:text-foreground/40 rounded-2xl shadow-lg-glass" />
-                </div>
                 <LanguageToggle 
                   currentLanguage={currentLanguage} 
                   onLanguageChange={(lang: 'english' | 'hindi') => setCurrentLanguage(lang)} 
                 />
-                <Button variant="ghost" className="relative p-3 glass-card border-white/20 rounded-2xl shadow-lg-glass">
-                  <Bell className="w-6 h-6 text-foreground/70" />
-                  {notifications > 0 && (
-                    <Badge className="absolute -top-1 -right-1 w-6 h-6 p-0 flex items-center justify-center bg-soft-coral text-white text-xs border-0">
-                      {notifications}
-                    </Badge>
-                  )}
-                </Button>
                 {/* Profile Dropdown */}
                 <div className="relative">
                   <button
