@@ -306,18 +306,6 @@ const Dashboard: React.FC<DashboardProps> = ({
         </div>
       </div>
 
-      {/* Health Metrics */}
-      <div>
-        <h2 className="font-heading text-2xl sm:text-3xl font-bold text-foreground mb-6 sm:mb-8">
-          Health Metrics
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          {healthMetrics.map((metric, index) => <Card key={index} className={`glass-card glass-metric-card border-white/10 rounded-2xl shadow-md ${metric.bgColor}`}>
-              
-            </Card>)}
-        </div>
-      </div>
-
       {/* Recent Activity & Appointments */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
         {/* Recent Activity */}
@@ -332,7 +320,7 @@ const Dashboard: React.FC<DashboardProps> = ({
       case 'overview':
         return renderOverview();
       case 'assessment':
-        return <Assessment language={currentLanguage} />;
+        return <Assessment />;
       case 'chat':
         return <VoiceChatbot language={currentLanguage} />;
       case 'doctors':
