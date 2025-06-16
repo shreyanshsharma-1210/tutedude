@@ -53,7 +53,7 @@ Check out the live app here:
 
 3. **Start the development server:**
    ```bash
-   npm start
+   npm run dev
    ```
 
 4. **Open in your browser:**  
