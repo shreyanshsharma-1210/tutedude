@@ -16,7 +16,7 @@
 - **Voice & Vernacular AI Chatbot:** Get health advice in English or Hindi using natural language.
 - **Nearby Doctor & Hospital Discovery:** Find verified healthcare providers with ratings and directions.
 - **Emergency SOS:** Instantly send your location to family or call for help.
-- **Nutrition & Women's Health Modules:** Specialized advice for nutrition and women's health needs.
+- **Assessment for Regular Health Check Ups:** Specialized assessments in many fields. Comes with graphs and Downloadable results.
 - **Secure Data Storage:** All user data is stored securely and privately.
 - **User-Friendly Interface:** Simple, animated, and accessible design for all users.
 
