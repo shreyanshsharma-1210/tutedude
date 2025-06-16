@@ -42,8 +42,8 @@ Check out the live app here:
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/Somil-Jain24/tute.git
-   cd tute
+   git clone https://github.com/shreyanshsharma-1210/tutedude.git
+   cd tutedude
    ```
 
 2. **Install dependencies:**
@@ -80,12 +80,6 @@ Contributions are welcome!
 3. Commit your changes (`git commit -m 'Add some feature'`)  
 4. Push to the branch (`git push origin feature/YourFeature`)  
 5. Open a Pull Request
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License.
 
 ---
 
