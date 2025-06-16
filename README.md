@@ -1,7 +1,7 @@
 # HealthSaarthi – AI-Based Rural Health Companion
 
 [Live Demo on Netlify](https://tutedemo.netlify.app/)  
-[GitHub Repository](https://github.com/Somil-Jain24/tute.git)
+[GitHub Repository](https://github.com/shreyanshsharma-1210/tutedude.git)
 
 ---
 
