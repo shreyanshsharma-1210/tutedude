@@ -14,7 +14,7 @@ export async function signUpWithEmail(email: string, password: string, fullName:
   const isDevelopment = process.env.NODE_ENV === 'development';
   const baseUrl = isDevelopment 
     ? window.location.origin 
-    : 'https://healthsaarthi.netlify.app'; // Replace with your actual Netlify domain
+    : 'https://healthsaarthi.netlify.app/auth'; // Replace with your actual Netlify domain
 
   const redirectUrl = `${baseUrl}/#type=recovery`;
   const { data, error: authError } = await supabase.auth.signUp({
